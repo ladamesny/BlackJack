@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blackjack</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src='/application.js'></script>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/application.css">
+  </head>
+  <body style="padding-top: 50px;">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+              <li><a href="/setname"><div class="new_game">New Player?</div></a></li>
+              <% if @finish_game %>
+              <li><a href="/setbet"><div class="play_again">Play Again</div></a></li>
+              <li><a href="/endgame"><div class="end_game">End Game</div></a></li>
+              <% end %>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <%if @error %>
+      <div class="alert alert-error"><strong><%=@error%></strong></div>
+    <% elsif @message %>
+        <div class="alert alert-success"><strong><%=@message%></strong></div>
+    <% end %>
+      <%= yield %>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<div id="frame">
+<h1>Thanks <%= session[:username] %>! You have $<%= session[:bank] %> in total</h1><br>
+<div id="setbet">
+<h4>How much would you like to bet?</h4>
+<form  action="/setbet" method="post">
+<input type="number" name="bet">
+<br>
+<input type="submit" class="btn-success">
+  
+</form>
+
+</div>
+</div>

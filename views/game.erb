@@ -1,0 +1,60 @@
+<div id='game'>
+  <% if @blackjack %>
+  <h1>Blackjack!</h1>
+  <% end %>
+
+  <% if !@dealer_turn && !@finish_game %>
+  <h4>Ok <%= session[:username]%>, you just bet <strong style="color:blue;font-size:20px;"><em>$<%= session[:bet]%></em></strong> and you now have <strong style="color:blue;font-size:20px;"><em>$<%= session[:bank]%></em></strong> left! </h4>
+  <% end %>
+
+  <div class="well">
+    <h4>Dealer's hand:</h4>
+    <ul class="hand">
+    <% if @finish_game %>
+      <% session[:computerhand].each do |card| %>
+        <li><%= display_card(card)%></li>
+      <%end%>
+    <% else %>
+      <li><img src="/images/cards/cover.jpg"></li>
+      <li><%= display_card(session[:computerhand][1])%></li>
+    <% end %>
+    </ul>
+    <br/>
+    
+    <% if @dealer_turn %>
+      <form id="dealer_cards" action="/game/dealer" method="get">
+        <input type="submit" value="See dealer's cards" class="btn btn-primary"/>
+      </form>
+    <% end %>
+    
+    <% if @finish_game %>
+      <p>Dealer's score is <strong style="color:red;font-size:20px;"><em><%=calculate_total(session[:computerhand])%></em></strong></p>
+    <% end %>
+  </div>
+  <br>
+  <div class="well">
+    <h4><%= session[:username]%>'s hand:</h4>
+    <ul class="hand">
+    <% session[:userhand].each do |card| %>
+      <li><%= display_card(card).to_s %></li>
+    <% end %>
+    </ul>
+  </div>
+  <%if @finish_game %>
+    <div><strong><%= @endMessage %><strong></div>
+  <% end %>
+  <br>
+  <p>Your score is <strong style="color:blue;font-size:20px;"><em><%=calculate_total(session[:userhand])%></em></strong></p>
+
+  <% if @show_hit_or_stay %>
+    <p>Would you like to hit?</p>
+    <div class="player_turn">
+      <form id="hit_form" action="/game/player/hit" method="post">
+      <input type="submit" value="hit" class="btn btn-success">
+      </form>
+      <form id="stay_form" action="/game/player/stay" method="post">
+      <input type="submit" value="stay" class="btn btn-warning">
+      </form>
+    </div>
+  <% end %>
+</div>

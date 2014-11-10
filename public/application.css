@@ -1,0 +1,74 @@
+h1 {
+  color: blue;
+}
+
+.hand {
+  list-style-type: none;
+}
+
+.hand li{
+  display: inline-block;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.playerturn{
+  display: inline-block;
+}
+
+form#hit_form{
+  float:left;
+  margin-right: 10px;
+}
+
+form#stay_form{
+  float: left;
+}
+
+div#get_name{
+  width:40%;
+  height:30%;
+  background-color: lightblue;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  padding-left: 15px;
+  border:3px solid blue;
+  margin-top:100px;
+}
+div#setbet{
+  width:40%;
+  height:30%;
+  background-color: lightblue;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  padding-left: 15px;
+  border:3px solid blue;
+  margin-top:100px;
+}
+
+.new_game{
+  border: 1px solid black;
+  background-color: red;
+  color:white;
+  padding: 5px;
+  border-radius: 5px;
+}
+.play_again{
+  border: 1px solid black;
+  background-color: purple;
+  color:white;
+  padding: 5px;
+  border-radius: 5px;
+}
+.end_game{
+  border: 1px solid black;
+  background-color: green;
+  color:white;
+  padding: 5px;
+  border-radius: 5px;
+}
+#frame{
+  margin-top: 50px;
+}
